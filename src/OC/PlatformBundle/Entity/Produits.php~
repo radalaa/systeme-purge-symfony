@@ -1,0 +1,97 @@
+<?php
+
+namespace OC\PlatformBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Produits
+ *
+ * @ORM\Table(name="produits")
+ * @ORM\Entity(repositoryClass="OC\PlatformBundle\Repository\ProduitsRepository")
+ */
+class Produits
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="discription", type="text")
+     */
+    private $discription;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="qte", type="integer")
+     */
+    private $qte;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set discription
+     *
+     * @param string $discription
+     *
+     * @return Produits
+     */
+    public function setDiscription($discription)
+    {
+        $this->discription = $discription;
+
+        return $this;
+    }
+
+    /**
+     * Get discription
+     *
+     * @return string
+     */
+    public function getDiscription()
+    {
+        return $this->discription;
+    }
+
+    /**
+     * Set qte
+     *
+     * @param integer $qte
+     *
+     * @return Produits
+     */
+    public function setQte($qte)
+    {
+        $this->qte = $qte;
+
+        return $this;
+    }
+
+    /**
+     * Get qte
+     *
+     * @return int
+     */
+    public function getQte()
+    {
+        return $this->qte;
+    }
+}
+

@@ -1,0 +1,126 @@
+<?php
+
+namespace OC\PlatformBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * PostProduits
+ *
+ * @ORM\Table(name="post_produits")
+ * @ORM\Entity(repositoryClass="OC\PlatformBundle\Repository\PostProduitsRepository")
+ */
+class PostProduits
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lavel", type="string", length=255)
+     */
+    private $lavel;
+
+   /**
+   * @ORM\ManyToOne(targetEntity="OC\PlatformBundle\Entity\Post")
+   * @ORM\JoinColumn(nullable=false)
+   */
+  private $post;
+
+  /**
+   * @ORM\ManyToOne(targetEntity="OC\PlatformBundle\Entity\Produits")
+   * @ORM\JoinColumn(nullable=false)
+   */
+  private $produit;
+
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set lavel
+     *
+     * @param string $lavel
+     *
+     * @return PostProduits
+     */
+    public function setLavel($lavel)
+    {
+        $this->lavel = $lavel;
+
+        return $this;
+    }
+
+    /**
+     * Get lavel
+     *
+     * @return string
+     */
+    public function getLavel()
+    {
+        return $this->lavel;
+    }
+
+    /**
+     * Set post
+     *
+     * @param \OC\PlatformBundle\Entity\Post $post
+     *
+     * @return PostProduits
+     */
+    public function setPost(\OC\PlatformBundle\Entity\Post $post)
+    {
+        $this->post = $post;
+
+        return $this;
+    }
+
+    /**
+     * Get post
+     *
+     * @return \OC\PlatformBundle\Entity\Post
+     */
+    public function getPost()
+    {
+        return $this->post;
+    }
+
+    /**
+     * Set produit
+     *
+     * @param \OC\PlatformBundle\Entity\Produits $produit
+     *
+     * @return PostProduits
+     */
+    public function setProduit(\OC\PlatformBundle\Entity\Produits $produit)
+    {
+        $this->produit = $produit;
+
+        return $this;
+    }
+
+    /**
+     * Get produit
+     *
+     * @return \OC\PlatformBundle\Entity\Produits
+     */
+    public function getProduit()
+    {
+        return $this->produit;
+    }
+}
